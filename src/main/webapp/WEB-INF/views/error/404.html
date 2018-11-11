@@ -1,0 +1,28 @@
+<html>
+<body>
+<h2>404</h2>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+
+<div>
+
+</div>
+<script>
+    (function(){
+        var data = {userIdentity: 'user0'};
+        $.ajax({
+            url : "http://localhost/fortuneWheel",
+            type : "POST",
+            data : data, //转JSON字符串
+            dataType: 'json',
+            success : function(result) {
+                console.log(result);
+            }
+        });
+
+        $.post("http://localhost/fortuneWheel", {"userIdentity": "user0"}, function(data) {
+            console.log('data', data);
+        })
+    })();
+</script>
+</body>
+</html>

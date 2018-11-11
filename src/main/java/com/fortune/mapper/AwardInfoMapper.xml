@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fortune.dao.AwardInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.fortune.entity.AwardInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="awardId" property="awardid" jdbcType="INTEGER" />
+    <result column="awardName" property="awardname" jdbcType="VARCHAR" />
+    <result column="awardDes" property="awarddes" jdbcType="VARCHAR" />
+    <result column="awardNum" property="awardnum" jdbcType="INTEGER" />
+    <result column="awardProb" property="awardprob" jdbcType="DOUBLE" />
+    <result column="awardImg" property="awardimg" jdbcType="VARCHAR" />
+    <result column="week" property="week" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, awardId, awardName, awardDes, awardNum, awardProb, awardImg, week
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from awardinfo
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from awardinfo
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.fortune.entity.AwardInfo" >
+    insert into awardinfo (id, awardId, awardName, 
+      awardDes, awardNum, awardProb, 
+      awardImg, week)
+    values (#{id,jdbcType=INTEGER}, #{awardid,jdbcType=INTEGER}, #{awardname,jdbcType=VARCHAR}, 
+      #{awarddes,jdbcType=VARCHAR}, #{awardnum,jdbcType=INTEGER}, #{awardprob,jdbcType=DOUBLE}, 
+      #{awardimg,jdbcType=VARCHAR}, #{week,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.fortune.entity.AwardInfo" >
+    insert into awardinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="awardid != null" >
+        awardId,
+      </if>
+      <if test="awardname != null" >
+        awardName,
+      </if>
+      <if test="awarddes != null" >
+        awardDes,
+      </if>
+      <if test="awardnum != null" >
+        awardNum,
+      </if>
+      <if test="awardprob != null" >
+        awardProb,
+      </if>
+      <if test="awardimg != null" >
+        awardImg,
+      </if>
+      <if test="week != null" >
+        week,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="awardid != null" >
+        #{awardid,jdbcType=INTEGER},
+      </if>
+      <if test="awardname != null" >
+        #{awardname,jdbcType=VARCHAR},
+      </if>
+      <if test="awarddes != null" >
+        #{awarddes,jdbcType=VARCHAR},
+      </if>
+      <if test="awardnum != null" >
+        #{awardnum,jdbcType=INTEGER},
+      </if>
+      <if test="awardprob != null" >
+        #{awardprob,jdbcType=DOUBLE},
+      </if>
+      <if test="awardimg != null" >
+        #{awardimg,jdbcType=VARCHAR},
+      </if>
+      <if test="week != null" >
+        #{week,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.fortune.entity.AwardInfo" >
+    update awardinfo
+    <set >
+      <if test="awardid != null" >
+        awardId = #{awardid,jdbcType=INTEGER},
+      </if>
+      <if test="awardname != null" >
+        awardName = #{awardname,jdbcType=VARCHAR},
+      </if>
+      <if test="awarddes != null" >
+        awardDes = #{awarddes,jdbcType=VARCHAR},
+      </if>
+      <if test="awardnum != null" >
+        awardNum = #{awardnum,jdbcType=INTEGER},
+      </if>
+      <if test="awardprob != null" >
+        awardProb = #{awardprob,jdbcType=DOUBLE},
+      </if>
+      <if test="awardimg != null" >
+        awardImg = #{awardimg,jdbcType=VARCHAR},
+      </if>
+      <if test="week != null" >
+        week = #{week,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.fortune.entity.AwardInfo" >
+    update awardinfo
+    set awardId = #{awardid,jdbcType=INTEGER},
+      awardName = #{awardname,jdbcType=VARCHAR},
+      awardDes = #{awarddes,jdbcType=VARCHAR},
+      awardNum = #{awardnum,jdbcType=INTEGER},
+      awardProb = #{awardprob,jdbcType=DOUBLE},
+      awardImg = #{awardimg,jdbcType=VARCHAR},
+      week = #{week,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByAwardId" parameterType="com.fortune.entity.AwardInfo" >
+    update awardinfo
+    <set >
+      <if test="awardid != null" >
+        awardId = #{awardid,jdbcType=INTEGER},
+      </if>
+      <if test="awardname != null" >
+        awardName = #{awardname,jdbcType=VARCHAR},
+      </if>
+      <if test="awarddes != null" >
+        awardDes = #{awarddes,jdbcType=VARCHAR},
+      </if>
+      <if test="awardnum != null" >
+        awardNum = #{awardnum,jdbcType=INTEGER},
+      </if>
+      <if test="awardprob != null" >
+        awardProb = #{awardprob,jdbcType=DOUBLE},
+      </if>
+      <if test="awardimg != null" >
+        awardImg = #{awardimg,jdbcType=VARCHAR},
+      </if>
+      <if test="week != null" >
+        week = #{week,jdbcType=INTEGER},
+      </if>
+    </set>
+    where awardId = #{awardid,jdbcType=INTEGER}
+  </update>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select
+    <include refid="Base_Column_List" />
+    from awardinfo
+  </select>
+  <delete id="deleteByAwardIdAndWeek">
+    DELETE FROM awardinfo WHERE awardId = #{awardId, jdbcType=INTEGER} AND
+    week = #{week, jdbcType=INTEGER}
+  </delete>
+</mapper>
